@@ -1118,8 +1118,7 @@ button {
   height: 40px;
   top: 826px;
   left: 73px;
-  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-01-04/dLG0BLSxZW.png)
-    no-repeat center;
+  background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-01-04/dLG0BLSxZW.png) no-repeat center;
   background-size: cover;
   z-index: 61;
   border-radius: 50%;
@@ -1136,4 +1135,27 @@ button {
   font-family: Inter, var(--default-font-family);
   font-size: 16px;
   font-weight: 600;
+  line-height: 19px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.48px;
+  z-index: 55;
+}
+.received-description {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  height: 17px;
+  top: 860px;
+  left: 145px;
+  color: #1e1e1e;
+  font-family: Inter, var(--default-font-family);
+  font-size: 14px;
+  font-weight: 300;  /* PENTING: 300 bukan 400 atau 600 */
+  line-height: 16.8px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.42px;
+  z-index: 54;
 }
