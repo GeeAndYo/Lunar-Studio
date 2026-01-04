@@ -1,103 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tracking</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700&display=swap" />
-    <link rel="stylesheet" href="tracking.css" />
-  </head>
-  <body>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking - Lunar Studio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700&display=swap">
+    <link rel="stylesheet" href="tracking.css">
+</head>
+<body>
     <div class="main-container">
-      <div class="flex-row-dc">
-        <div class="header"></div>
-        <div class="button"><span class="button-login">LOGIN</span></div>
-        <div class="button-1"><span class="button-daftar">DAFTAR</span></div>
-        <div class="vector"></div>
-        <span class="title-lunar-studio">LUNAR STUDIO</span
-        ><span class="title-beranda">Beranda</span
-        ><span class="title-katalog">Katalog</span
-        ><span class="title-pesan">Pesan</span
-        ><span class="title-tracking">Tracking</span
-        ><span class="title-kontak">Kontak</span>
-      </div>
-      <div class="flex-row-a">
-        <span class="title">Tracking Pesanan</span
-        ><span class="title-2"
-          >Lacak status pesanan Anda dengan memasukan Order ID</span
-        >
-        <div class="form-shipping"><div class="legend"></div></div>
-        <div class="button-3"><span class="button-4">Lacak Pesanan</span></div>
-        <div class="input">
-          <span class="masukkan-order-id"
-            >Masukkan Order ID (contoh: LS-2025-00123</span
-          >
+        <!-- Header -->
+        <div class="flex-row-dc">
+            <div class="header"></div>
+            <div class="button"><span class="button-login">LOGIN</span></div>
+            <div class="button-1"><span class="button-daftar">DAFTAR</span></div>
+            <div class="vector"></div>
+            <span class="title-lunar-studio">LUNAR STUDIO</span>
+            <span class="title-beranda">Beranda</span>
+            <span class="title-katalog">Katalog</span>
+            <span class="title-pesan">Pesan</span>
+            <span class="title-tracking">Tracking</span>
+            <span class="title-kontak">Kontak</span>
         </div>
-      </div>
-      <div class="flex-row-db">
-        <span class="title-5">Pesanan telah diterima oleh Anda</span
-        ><span class="title-6">-</span>
-        <div class="form-shipping-7">
-          <div class="legend-8">
-            <span class="shipping-info">Status Pesanan #LS-2025-00123</span>
-          </div>
+
+        <!-- Form Tracking - HANYA BAGIAN INI YANG DIUBAH -->
+        <div class="flex-row-a">
+            <span class="title">Tracking Pesanan</span>
+            <span class="title-2">Lacak status pesanan Anda dengan memasukan Order ID</span>
+            <div class="form-shipping">
+                <div class="legend"></div>
+            </div>
+            <div class="button-3" id="btnLacak">
+                <span class="button-4">Lacak Pesanan</span>
+            </div>
+            <input 
+                type="text" 
+                class="input" 
+                id="orderIdInput" 
+                placeholder="Masukkan Order ID (contoh: LS-2025-00123)"
+            />
         </div>
-        <div class="ellipse"></div>
-        <div class="progress-indicator"></div>
-        <span class="order-received">Pesanan Diterima</span
-        ><span class="order-verification"
-          >Pesanan Anda telah diterima dan sedang diverifikasi</span
-        ><span class="order-time">21 Mar 2025, 11.00 WIB</span>
-        <div class="ellipse-9"></div>
-        <span class="payment-confirmed">Pembayaran Dikonfirmasi</span
-        ><span class="payment-processing"
-          >Pembayaran Anda telah dikonfirmasi dan pesanan mulai diproses</span
-        ><span class="payment-time">21 Mar 2025, 12.00 WIB</span>
-        <div class="ellipse-a"></div>
-        <span class="design-in-progress">Desain Sedang Dibuat</span
-        ><span class="design-team"
-          >Tim desainer kami sedang mengerjakan desain Anda</span
-        ><span class="design-time">21 Mar 2025, 14.00 WIB</span>
-        <div class="ellipse-b"></div>
-        <span class="title-c">Desain Siap Review</span
-        ><span class="title-d"
-          >Desain telah selesai dan siap untuk Anda review. Cek email untuk
-          melihat preview</span
-        ><span class="title-e">21 Mar 2025, 16.00 WIB</span>
-        <div class="ellipse-f"></div>
-        <span class="title-10">Proses Cetak</span
-        ><span class="title-11">Menunggu approval untuk memulai cetak</span
-        ><span class="title-12">Estimasi: 21 Mar 2025</span>
-        <div class="ellipse-13"></div>
-        <span class="title-14">Pengiriman</span
-        ><span class="title-15">Pesanan akan segera dikirim ke alamat Anda</span
-        ><span class="title-16">Estimasi: 23 Mar 2025</span>
-        <div class="ellipse-17"></div>
-        <span class="title-18">Selesai</span>
-      </div>
-      <div class="flex-row-de">
-        <div class="footer"></div>
-        <span class="title-19">Bantuan</span
-        ><span class="title-1a">Layanan</span
-        ><span class="title-1b">Perusahaan</span
-        ><span class="title-1c">LUNAR STUDIO</span
-        ><span class="title-1d">Tentang Kami</span
-        ><span class="title-1e"
-          >Platform design dan cetak digital terpercaya untuk mahasiswa dan
-          UMKM. Wujudkan branding impian Anda bersama kami.</span
-        ><span class="title-1f"
-          >Design Grafis<br /><br />Cetak Digital<br /><br />Paket Bundling<br /><br />Template
-          Design</span
-        ><span class="title-20"
-          >Hubungi Kami<br /><br />Syarat & Ketentuan<br /><br />Kebijakan</span
-        >
-      </div>
-      <div class="flex-row-b">
-        <div class="footer-21"></div>
-        <div class="group"></div>
-        <span class="title-22">Lunar Studio. All rights reserved</span>
-      </div>
+
+        <!-- Status Pesanan - TIDAK DIUBAH SAMA SEKALI -->
+        <div class="flex-row-db">
+            <span class="title-5">Pesanan telah diterima oleh Anda</span>
+            <span class="title-6">-</span>
+            <div class="form-shipping-7">
+                <div class="legend-8">
+                    <span class="shipping-info">Status Pesanan #LS-2025-00123</span>
+                </div>
+            </div>
+            <div class="ellipse"></div>
+            <div class="progress-indicator"></div>
+            <span class="order-received">Pesanan Diterima</span>
+            <span class="order-verification">Pesanan Anda telah diterima dan sedang diverifikasi</span>
+            <span class="order-time">21 Mar 2025, 11.00 WIB</span>
+            <div class="ellipse-9"></div>
+            <span class="payment-confirmed">Pembayaran Dikonfirmasi</span>
+            <span class="payment-processing">Pembayaran Anda telah dikonfirmasi dan pesanan mulai diproses</span>
+            <span class="payment-time">21 Mar 2025, 12.00 WIB</span>
+            <div class="ellipse-a"></div>
+            <span class="design-in-progress">Desain Sedang Dibuat</span>
+            <span class="design-team">Tim desainer kami sedang mengerjakan desain Anda</span>
+            <span class="design-time">21 Mar 2025, 14.00 WIB</span>
+            <div class="ellipse-b"></div>
+            <span class="title-c">Desain Siap Review</span>
+            <span class="title-d">Desain telah selesai dan siap untuk Anda review. Cek email untuk melihat preview</span>
+            <span class="title-e">21 Mar 2025, 16.00 WIB</span>
+            <div class="ellipse-f"></div>
+            <span class="title-10">Proses Cetak</span>
+            <span class="title-11">Menunggu approval untuk memulai cetak</span>
+            <span class="title-12">Estimasi: 21 Mar 2025</span>
+            <div class="ellipse-13"></div>
+            <span class="title-14">Pengiriman</span>
+            <span class="title-15">Pesanan akan segera dikirim ke alamat Anda</span>
+            <span class="title-16">Estimasi: 23 Mar 2025</span>
+            <div class="ellipse-17"></div>
+            <span class="title-18">Selesai</span>
+        </div>
+
+        <!-- Footer -->
+        <div class="flex-row-de">
+            <div class="footer"></div>
+            <span class="title-19">Bantuan</span>
+            <span class="title-1a">Layanan</span>
+            <span class="title-1b">Perusahaan</span>
+            <span class="title-1c">LUNAR STUDIO</span>
+            <span class="title-1d">Tentang Kami</span>
+            <span class="title-1e">Platform design dan cetak digital terpercaya untuk mahasiswa dan UMKM. Wujudkan branding impian Anda bersama kami.</span>
+            <span class="title-1f">Design Grafis<br><br>Cetak Digital<br><br>Paket Bundling<br><br>Template Design</span>
+            <span class="title-20">Hubungi Kami<br><br>Syarat & Ketentuan<br><br>Kebijakan</span>
+        </div>
+        <div class="flex-row-b">
+            <div class="footer-21"></div>
+            <div class="group"></div>
+            <span class="title-22">Lunar Studio. All rights reserved</span>
+        </div>
     </div>
+
     <script src="script.js"></script>
-  </body>
+</body>
 </html>

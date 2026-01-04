@@ -68,7 +68,16 @@ button {
   z-index: 8;
   overflow: hidden;
   border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
+.button:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
 .button-login {
   flex-shrink: 0;
   flex-basis: auto;
@@ -100,7 +109,16 @@ button {
   z-index: 10;
   overflow: hidden;
   border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
+.button-1:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
 .button-daftar {
   flex-shrink: 0;
   flex-basis: auto;
@@ -457,13 +475,36 @@ button {
   flex-shrink: 0;
   position: relative;
   min-width: 120px;
-  padding: 12px 16px 12px 16px;
+  padding: 0;
   background: #ffffff;
   border: 1px solid #d9d9d9;
   z-index: 37;
   overflow: hidden;
   border-radius: 8px;
+  transition: all 0.3s ease;
 }
+
+/* STYLING UNTUK INPUT YANG BERFUNGSI */
+.input input {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  font-family: Inter, var(--default-font-family);
+  font-size: 16px;
+  color: #1e1e1e;
+  outline: none;
+}
+
+.input input::placeholder {
+  color: #b3b3b3;
+}
+
+.input:focus-within {
+  border-color: #2a6f97;
+  box-shadow: 0 0 0 3px rgba(42, 111, 151, 0.1);
+}
+
 .value {
   flex-grow: 1;
   flex-shrink: 0;
@@ -514,13 +555,35 @@ button {
   flex-shrink: 0;
   position: relative;
   min-width: 120px;
-  padding: 12px 16px 12px 16px;
+  padding: 0;
   background: #ffffff;
   border: 1px solid #d9d9d9;
   z-index: 41;
   overflow: hidden;
   border-radius: 8px;
+  transition: all 0.3s ease;
 }
+
+.input-7 input {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  font-family: Inter, var(--default-font-family);
+  font-size: 16px;
+  color: #1e1e1e;
+  outline: none;
+}
+
+.input-7 input::placeholder {
+  color: #b3b3b3;
+}
+
+.input-7:focus-within {
+  border-color: #2a6f97;
+  box-shadow: 0 0 0 3px rgba(42, 111, 151, 0.1);
+}
+
 .value-8 {
   flex-grow: 1;
   flex-shrink: 0;
@@ -572,13 +635,38 @@ button {
   position: relative;
   min-width: 120px;
   min-height: 80px;
-  padding: 12px 16px 12px 16px;
+  padding: 0;
   background: #ffffff;
   border: 1px solid #d9d9d9;
   z-index: 45;
   overflow: hidden;
   border-radius: 8px;
+  transition: all 0.3s ease;
 }
+
+/* STYLING UNTUK TEXTAREA YANG BERFUNGSI */
+.textarea textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  font-family: Inter, var(--default-font-family);
+  font-size: 16px;
+  color: #1e1e1e;
+  outline: none;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.textarea textarea::placeholder {
+  color: #b3b3b3;
+}
+
+.textarea:focus-within {
+  border-color: #2a6f97;
+  box-shadow: 0 0 0 3px rgba(42, 111, 151, 0.1);
+}
+
 .value-a {
   flex-grow: 1;
   flex-shrink: 0;
@@ -630,13 +718,37 @@ button {
   position: relative;
   min-width: 120px;
   min-height: 80px;
-  padding: 12px 16px 12px 16px;
+  padding: 0;
   background: #ffffff;
   border: 1px solid #d9d9d9;
   z-index: 49;
   overflow: hidden;
   border-radius: 8px;
+  transition: all 0.3s ease;
 }
+
+.textarea-d textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  font-family: Inter, var(--default-font-family);
+  font-size: 16px;
+  color: #1e1e1e;
+  outline: none;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.textarea-d textarea::placeholder {
+  color: #b3b3b3;
+}
+
+.textarea-d:focus-within {
+  border-color: #2a6f97;
+  box-shadow: 0 0 0 3px rgba(42, 111, 151, 0.1);
+}
+
 .span-value {
   flex-grow: 1;
   flex-shrink: 0;
@@ -918,21 +1030,120 @@ button {
   letter-spacing: -0.6px;
   z-index: 67;
 }
-.tab {
+
+/* STYLING UNTUK PAYMENT METHOD CARDS YANG BISA DIKLIK */
+.payment-method-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.payment-method-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(42, 111, 151, 0.2);
+  border-color: #2a6f97 !important;
+}
+
+.payment-method-card:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+.payment-method-card.selected {
+  border: 2px solid #2a6f97 !important;
+  background: linear-gradient(135deg, #ffffff 0%, #e8f4f8 100%) !important;
+  box-shadow: 0 4px 15px rgba(42, 111, 151, 0.3);
+}
+
+.payment-method-card.selected::after {
+  content: '✓';
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  background: #2a6f97;
+  color: white;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: nowrap;
-  position: absolute;
-  width: 280px;
-  height: 12px;
-  top: 95px;
-  left: 887px;
-  padding: 4px 12px 4px 12px;
-  border-top: 1px solid #b1b1b1;
-  z-index: 83;
-  border-radius: 4px 4px 0 0;
+  font-size: 18px;
+  font-weight: bold;
+  animation: checkmarkPop 0.4s ease;
 }
+
+/* Animasi bounce saat diklik */
+@keyframes bounceClick {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    transform: translateY(-8px) scale(1.02);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.01);
+  }
+  75% {
+    transform: translateY(-6px) scale(1.015);
+  }
+}
+
+/* Animasi checkmark */
+@keyframes checkmarkPop {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+/* Efek glow saat selected */
+.payment-method-card.selected {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(42, 111, 151, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(42, 111, 151, 0.5);
+  }
+}
+
+/* HAPUS HANYA RADIO BUTTON - TAPI TAMPILKAN TEXT METODE PEMBAYARAN */
+.tab,
+.tab-1b,
+.tab-1e {
+  display: none !important; /* Hide semua radio button container */
+}
+
+/* TAMPILKAN KEMBALI ICON DAN TEXT */
+.modern-bank-building,
+.d-isometric-wallet-icon,
+.qr-code-scanner {
+  display: block !important; /* Show icon metode pembayaran */
+}
+
+.title-1a,
+.title-24,
+.title-25,
+.title-2b,
+.title-2c {
+  display: flex !important; /* Show text detail metode pembayaran */
+}
+
+.pricing-card-1f,
+.pricing-card-28 {
+  display: flex !important; /* Show card metode pembayaran */
+}
+
 .title-18 {
   display: flex;
   align-items: flex-start;
@@ -988,19 +1199,7 @@ button {
   z-index: 72;
 }
 .tab-1b {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  position: absolute;
-  width: 280px;
-  height: 12px;
-  top: 131px;
-  left: 887px;
-  padding: 4px 12px 4px 12px;
-  border-top: 1px solid #b1b1b1;
-  z-index: 80;
-  border-radius: 4px 4px 0 0;
+  display: none !important;
 }
 .title-1c {
   display: flex;
@@ -1039,19 +1238,7 @@ button {
   z-index: 84;
 }
 .tab-1e {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  position: absolute;
-  width: 280px;
-  height: 11px;
-  top: 173px;
-  left: 887px;
-  padding: 4px 12px 4px 12px;
-  border-top: 1px solid #b1b1b1;
-  z-index: 86;
-  border-radius: 4px 4px 0 0;
+  display: none !important;
 }
 .pricing-card-1f {
   display: flex;
@@ -1178,6 +1365,8 @@ button {
   letter-spacing: -0.42px;
   z-index: 73;
 }
+
+/* STYLING UNTUK BUTTON BAYAR SEKARANG YANG BISA DIKLIK */
 .button-26 {
   display: flex;
   align-items: center;
@@ -1195,7 +1384,20 @@ button {
   z-index: 54;
   overflow: hidden;
   border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
+.button-26:hover {
+  background: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.button-26:active {
+  transform: translateY(0);
+}
+
 .button-27 {
   flex-shrink: 0;
   flex-basis: auto;
@@ -1523,4 +1725,27 @@ button {
   white-space: nowrap;
   letter-spacing: 0.48px;
   z-index: 23;
+}
+
+/* RESPONSIVE - untuk mobile */
+@media (max-width: 768px) {
+  .input input,
+  .input-7 input,
+  .textarea textarea,
+  .textarea-d textarea {
+    font-size: 16px; /* Mencegah zoom otomatis di iOS */
+  }
+}
+
+/* Validasi visual untuk input */
+.input input:valid,
+.input-7 input:valid,
+.textarea textarea:valid {
+  border-left: 3px solid #27ae60;
+}
+
+.input input:invalid:not(:placeholder-shown),
+.input-7 input:invalid:not(:placeholder-shown),
+.textarea textarea:invalid:not(:placeholder-shown) {
+  border-left: 3px solid #e74c3c;
 }

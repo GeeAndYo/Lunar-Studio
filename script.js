@@ -6,7 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (el) {
       el.style.cursor = "pointer";
       el.addEventListener("click", () => {
-        window.location.href = target;
+        if (typeof target === "function") {
+          target();
+        } else {
+          window.location.href = target;
+        }
       });
     }
   }
@@ -42,10 +46,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // PAKET UMKM
   go(".button-43, .button-50, .button-5d", "pesan.html");
 
-  // PESAN → CHECKOUT
-  go(".checkout-button", "checkout.html");
+  // PESAN → PEMBAYARAN (langsung ke pembayaran)
+  // Handle form submit di halaman pesan
+  const orderForm = document.getElementById("orderForm");
+  if (orderForm) {
+    orderForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      window.location.href = "pembayaran.html";
+    });
+  }
 
-  // CHECKOUT → PEMBAYARAN
+  // CHECKOUT → PEMBAYARAN (jika ada halaman checkout terpisah)
   go(".button-27", "pembayaran.html");
 
   // PEMBAYARAN → TRACKING
@@ -58,5 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
   go(".button-17", () => {
     alert("Pesan berhasil dikirim ✨");
   });
+
+  // BERANDA - Button Mulai
+  go(".button-2, .button-mulai", "katalog.html");
 
 });

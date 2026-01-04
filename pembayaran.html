@@ -1,85 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pembayaran</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
-    <link rel="stylesheet" href="pembayaran.css" />
-  </head>
-  <body>
-    <div class="main-container">
-      <div class="flex-row-ecb">
-        <div class="header"></div>
-        <div class="button"><span class="button-login">LOGIN</span></div>
-        <div class="button-1"><span class="button-daftar">DAFTAR</span></div>
-        <div class="vector"></div>
-        <span class="title-lunar-studio">LUNAR STUDIO</span
-        ><span class="title-beranda">Beranda</span
-        ><span class="title-katalog">Katalog</span
-        ><span class="pesan">Pesan</span><span class="tracking">Tracking</span
-        ><span class="kontak">Kontak</span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pembayaran - Lunar Studio</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="pembayaran.css" />
+</head>
+<body>
+  <div class="main-container">
+    <!-- HEADER -->
+    <div class="flex-row-ecb">
+      <div class="header"></div>
+      <div class="button" onclick="window.location.href='login.html'">
+        <span class="button-login">LOGIN</span>
       </div>
-      <div class="flex-row-db">
-        <span class="pembayaran">Pembayaran</span
-        ><span class="selesaikan-pembayaran-anda"
-          >Selesaikan pembayaran Anda</span
-        >
-        <div class="rectangle">
-          <span class="total-pembayaran">Total Pembayaran</span
-          ><span class="rp-215000">Rp 215.000</span
-          ><span class="order-id-ls-2025-00123">Order ID: LS-2025-00123</span>
-        </div>
-        <div class="rectangle-2">
-          <span class="transfer-title">Transfer ke: </span
-          ><span class="bank-bri">Bank BRI</span>
-          <div class="title">
-            <span class="no-rekening">No. Rekening: </span
-            ><span class="rekening-number">2000985638163</span>
-          </div>
-          <div class="title-3">
-            <span class="account-name">a.n. </span
-            ><span class="lunar-studio">Lunar Studio</span>
-          </div>
-          <span class="upload-payment-proof"
-            >Setelah transfer, upload bukti pembayaran</span
-          >
-        </div>
-        <div class="button-4">
-          <span class="confirm-payment">Konfirmasi Pembayaran</span>
-        </div>
-        <div class="form-shipping"><div class="legend"></div></div>
-        <div class="input-field">
-          <span class="label">Upload Bukti Pembayaran</span>
-          <div class="input"></div>
-        </div>
-        <div class="button-5">
-          <span class="choose-files">Choose Files</span>
-        </div>
-        <span class="no-file-chosen">No file chosen</span>
+      <div class="button-1" onclick="window.location.href='daftar.html'">
+        <span class="button-daftar">DAFTAR</span>
       </div>
-      <div class="flex-row-eb">
-        <div class="footer"></div>
-        <span class="bantuan">Bantuan</span><span class="layanan">Layanan</span
-        ><span class="perusahaan">Perusahaan</span
-        ><span class="lunar-studio-6">LUNAR STUDIO</span
-        ><span class="tentang-kami">Tentang Kami</span
-        ><span class="platform-design"
-          >Platform design dan cetak digital terpercaya untuk mahasiswa dan
-          UMKM. Wujudkan branding impian Anda bersama kami.</span
-        ><span class="design-grafis"
-          >Design Grafis<br /><br />Cetak Digital<br /><br />Paket Bundling<br /><br />Template
-          Design</span
-        ><span class="hubungi-kami"
-          >Hubungi Kami<br /><br />Syarat & Ketentuan<br /><br />Kebijakan</span
-        >
-      </div>
-      <div class="flex-row-db-7">
-        <div class="footer-8"></div>
-        <div class="group"></div>
-        <span class="lunar-studio-9">Lunar Studio. All rights reserved</span>
-      </div>
+      <div class="vector"></div>
+      <span class="title-lunar-studio">LUNAR STUDIO</span>
+      <span class="title-beranda">Beranda</span>
+      <span class="title-katalog">Katalog</span>
+      <span class="pesan">Pesan</span>
+      <span class="tracking">Tracking</span>
+      <span class="kontak">Kontak</span>
     </div>
-    <script src="script.js"></script>
-  </body>
+
+    <!-- PAYMENT SECTION -->
+    <div class="flex-row-db">
+      <span class="pembayaran">Pembayaran</span>
+      <span class="selesaikan-pembayaran-anda">Selesaikan pembayaran Anda</span>
+
+      <!-- TOTAL PAYMENT BOX -->
+      <div class="rectangle">
+        <span class="total-pembayaran">Total Pembayaran</span>
+        <span class="rp-215000" id="totalPayment">Rp 215.000</span>
+        <span class="order-id-ls-2025-00123" id="orderId">Order ID: LS-2025-00123</span>
+      </div>
+
+      <!-- BANK TRANSFER INFO BOX -->
+      <div class="rectangle-2">
+        <span class="transfer-title">Transfer ke: </span>
+        <span class="bank-bri">Bank BRI</span>
+        <div class="title">
+          <span class="no-rekening">No. Rekening: </span>
+          <span class="rekening-number">2000985638163</span>
+        </div>
+        <div class="title-3">
+          <span class="account-name">a.n. </span>
+          <span class="lunar-studio">Lunar Studio</span>
+        </div>
+        <span class="upload-payment-proof">Setelah transfer, upload bukti pembayaran</span>
+      </div>
+
+      <!-- UPLOAD FORM -->
+      <form id="paymentForm" onsubmit="handlePaymentConfirm(event)">
+        <div class="form-shipping">
+          <div class="legend"></div>
+
+          <div class="input-field">
+            <label class="label">Upload Bukti Pembayaran</label>
+            <div class="file-upload-wrapper">
+              <input 
+                type="file" 
+                id="buktiPembayaran" 
+                class="file-input"
+                accept="image/*,.pdf"
+                required
+              />
+              <label for="buktiPembayaran" class="button-5">
+                <span class="choose-files">Choose Files</span>
+              </label>
+              <span class="file-name" id="fileName">No file chosen</span>
+            </div>
+          </div>
+
+          <!-- CONFIRM BUTTON -->
+          <button type="submit" class="button-4">
+            <span class="confirm-payment">Konfirmasi Pembayaran</span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="flex-row-eb">
+      <div class="footer"></div>
+      <span class="lunar-studio-6">LUNAR STUDIO</span>
+      <span class="layanan">Layanan</span>
+      <span class="perusahaan">Perusahaan</span>
+      <span class="bantuan">Bantuan</span>
+      <span class="platform-design">
+        Platform design dan cetak digital terpercaya untuk mahasiswa dan
+        UMKM. Wujudkan branding impian Anda bersama kami.
+      </span>
+      <span class="tentang-kami">Tentang Kami</span>
+      <span class="design-grafis">
+        Design Grafis<br /><br />Cetak Digital<br /><br />Paket Bundling<br /><br />Template Design
+      </span>
+      <span class="hubungi-kami">
+        Hubungi Kami<br /><br />Syarat & Ketentuan<br /><br />Kebijakan
+      </span>
+    </div>
+
+    <div class="flex-row-db-7">
+      <div class="footer-8"></div>
+      <div class="group"></div>
+      <span class="lunar-studio-9">Lunar Studio. All rights reserved</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
