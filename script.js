@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // HEADER NAVIGATION (SEMUA HALAMAN)
-  go(".lunar-studio, .title-lunar-studio", "beranda.html");
-  go(".beranda, .title-beranda", "beranda.html");
+  go(".lunar-studio, .title-lunar-studio", "index.html");
+  go(".beranda, .title-beranda", "index.html");
   go(".katalog, .title-katalog, .katalog-2", "katalog.html");
   go(".pesan, .title-pesan", "pesan.html");
   go(".tracking, .title-tracking", "tracking.html");
@@ -60,3 +60,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
