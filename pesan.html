@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buat Pesanan - Lunar Studio</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="pesan.css" />
+</head>
+<body>
+  <div class="main-container">
+    <!-- HEADER -->
+    <div class="flex-row-bea">
+      <div class="header"></div>
+      <div class="button" onclick="window.location.href='login.html'">
+        <span class="button-login">LOGIN</span>
+      </div>
+      <div class="button-1" onclick="window.location.href='daftar.html'">
+        <span class="button-daftar">DAFTAR</span>
+      </div>
+      <div class="vector"></div>
+      <span class="title-lunar-studio">LUNAR STUDIO</span>
+      <span class="title-beranda">Beranda</span>
+      <span class="title-katalog">Katalog</span>
+      <span class="title-pesan">Pesan</span>
+      <span class="title-tracking">Tracking</span>
+      <span class="title-kontak">Kontak</span>
+    </div>
+
+    <!-- TITLE SECTION -->
+    <span class="title-buat-pesanan-baru">Buat Pesanan Baru</span>
+    <span class="title-pilih-jenis-layanan">Pilih jenis layanan yang Anda butuhkan</span>
+
+    <!-- PROGRESS STEPS -->
+    <div class="flex-row-b">
+      <div class="vector-2"></div>
+      <div class="vector-3"></div>
+      <div class="vector-4"></div>
+      <div class="regroup">
+        <div class="vector-5"></div>
+      </div>
+      <span class="choose-service">Pilih layanan</span>
+      <span class="order-details">Detail pesanan</span>
+      <span class="payment">Pembayaran</span>
+      <span class="title-review">Review</span>
+    </div>
+    <div class="tab"></div>
+
+    <!-- MAIN FORM SECTION -->
+    <form id="orderForm" onsubmit="handleOrder(event)">
+      <div class="flex-row">
+        <!-- LEFT SIDE: FORM -->
+        <div class="form-shipping">
+          <div class="legend">
+            <span class="shipping-info">Pilih jenis layanan</span>
+          </div>
+
+          <!-- SERVICE TYPE CARDS -->
+          <div class="service-cards">
+            <div class="stats-card service-card" data-service="design" onclick="selectService('design')">
+              <div class="service-icon-3d artist-palette"></div>
+              <span class="title-10">Design</span>
+              <span class="title-14">Template atau Custom Design</span>
+            </div>
+            <div class="stats-card-8 service-card" data-service="cetak" onclick="selectService('cetak')">
+              <div class="service-icon-3d printer"></div>
+              <span class="title-11">Cetak</span>
+              <span class="title-15">Upload design Anda</span>
+            </div>
+          </div>
+
+          <!-- KATEGORI DESAIN -->
+          <div class="select-field">
+            <label class="label">Kategori Desain</label>
+            <div class="select-wrapper">
+              <select class="select-input" id="kategoriDesain" required>
+                <option value="">Pilih Kategori</option>
+                <option value="poster">Poster</option>
+                <option value="brosur">Brosur</option>
+                <option value="banner">Banner</option>
+                <option value="kartu-nama">Kartu Nama</option>
+                <option value="flyer">Flyer</option>
+                <option value="undangan">Undangan</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- JUDUL PROYEK -->
+          <div class="input-field">
+            <label class="label-16">Judul Proyek</label>
+            <input 
+              type="text" 
+              class="input" 
+              id="judulProyek"
+              placeholder="Contoh: Poster Workshop Edukasi Sosial Media"
+              required
+            />
+          </div>
+
+          <!-- DESKRIPSI -->
+          <div class="textarea-field">
+            <label class="label-18">Deskripsi & Brief Desain</label>
+            <textarea 
+              class="textarea" 
+              id="deskripsi"
+              placeholder="Jelaskan detail kebutuhan desain Anda"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+
+          <!-- UPLOAD FILE -->
+          <div class="input-field-1a">
+            <label class="label-1b">Upload File Referensi (Opsional)</label>
+            <div class="file-upload-wrapper">
+              <input 
+                type="file" 
+                id="fileReferensi" 
+                class="file-input"
+                accept="image/*,.pdf"
+                multiple
+              />
+              <label for="fileReferensi" class="file-label">
+                <span class="choose-files">Choose Files</span>
+              </label>
+              <span class="file-name" id="fileName">No file chosen</span>
+            </div>
+          </div>
+
+          <!-- JUMLAH CETAKAN -->
+          <div class="input-field-1d">
+            <label class="label-1e">Jumlah Cetakan</label>
+            <input 
+              type="number" 
+              class="input-1f" 
+              id="jumlahCetakan"
+              placeholder="Contoh: 100"
+              min="1"
+              required
+            />
+          </div>
+
+          <!-- BAHAN/MATERIAL -->
+          <div class="select-field-21">
+            <label class="label-22">Bahan/Material</label>
+            <div class="select-wrapper">
+              <select class="select-input" id="bahan" required>
+                <option value="">Pilih Bahan</option>
+                <option value="art-paper-120">Art Paper 120 gsm</option>
+                <option value="art-paper-150">Art Paper 150 gsm</option>
+                <option value="art-carton-230">Art Carton 230 gsm</option>
+                <option value="art-carton-260">Art Carton 260 gsm</option>
+                <option value="sticker-vinyl">Sticker Vinyl</option>
+                <option value="sticker-chromo">Sticker Chromo</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- METODE PENGIRIMAN -->
+          <div class="select-field-26">
+            <label class="label-27">Metode Pengiriman</label>
+            <div class="select-wrapper">
+              <select class="select-input" id="metodePengiriman" required>
+                <option value="">Pilih Metode</option>
+                <option value="jne-reg">JNE Regular</option>
+                <option value="jne-yes">JNE YES</option>
+                <option value="jnt-reg">J&T Regular</option>
+                <option value="jnt-express">J&T Express</option>
+                <option value="sicepat-reg">SiCepat Regular</option>
+                <option value="sicepat-best">SiCepat Best</option>
+                <option value="pickup">Ambil Sendiri</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- DEADLINE -->
+          <div class="input-field-2b">
+            <label class="deadline-label">Deadline</label>
+            <div class="date-input-wrapper">
+              <input 
+                type="date" 
+                class="input-2c" 
+                id="deadline"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- CHECKOUT BUTTON -->
+          <button type="submit" class="button-2e">
+            <span class="checkout-button">Checkout</span>
+          </button>
+        </div>
+
+        <!-- RIGHT SIDE: ORDER SUMMARY -->
+        <div class="pricing-card">
+          <span class="order-summary">Ringkasan Pesanan</span>
+          
+          <div class="summary-item">
+            <div class="summary-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
+                <path d="M2 17L12 22L22 17"/>
+                <path d="M2 12L12 17L22 12"/>
+              </svg>
+            </div>
+            <div class="summary-details">
+              <span class="design-service">Jasa Desain</span>
+              <span class="price" id="priceDesign">Rp 50.000</span>
+            </div>
+          </div>
+          <div class="divider"></div>
+
+          <div class="summary-item">
+            <div class="summary-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z"/>
+                <path d="M14 2V8H20"/>
+                <path d="M16 13H8"/>
+                <path d="M16 17H8"/>
+                <path d="M10 9H8"/>
+              </svg>
+            </div>
+            <div class="summary-details">
+              <span class="title-b">Cetak (<span id="qtyDisplay">0</span> pcs)</span>
+              <span class="title" id="priceCetak">Rp 0</span>
+            </div>
+          </div>
+          <div class="divider"></div>
+
+          <div class="summary-item">
+            <div class="summary-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="3" width="15" height="13"/>
+                <path d="M16 8L20 11V16H16V8Z"/>
+                <circle cx="5.5" cy="18.5" r="2.5"/>
+                <circle cx="18.5" cy="18.5" r="2.5"/>
+              </svg>
+            </div>
+            <div class="summary-details">
+              <span class="title-e">Ongkir</span>
+              <span class="title-d" id="priceOngkir">Rp 10.000</span>
+            </div>
+          </div>
+          <div class="divider-bold"></div>
+
+          <div class="summary-total">
+            <span class="title-13">Total</span>
+            <span class="title-12" id="totalPrice">Rp 60.000</span>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <!-- FOOTER -->
+    <div class="flex-row-2f">
+      <div class="footer"></div>
+      <span class="lunar-studio-title">LUNAR STUDIO</span>
+      <span class="layanan-title">Layanan</span>
+      <span class="perusahaan-title">Perusahaan</span>
+      <span class="bantuan-title">Bantuan</span>
+      <span class="platform-description">
+        Platform design dan cetak digital terpercaya untuk mahasiswa dan
+        UMKM. Wujudkan branding impian Anda bersama kami.
+      </span>
+      <span class="tentang-kami-title">Tentang Kami</span>
+      <span class="services">
+        Design Grafis<br /><br />Cetak Digital<br /><br />Paket Bundling<br /><br />Template Design
+      </span>
+      <span class="contact-terms">
+        Hubungi Kami<br /><br />Syarat & Ketentuan<br /><br />Kebijakan
+      </span>
+    </div>
+
+    <div class="flex-row-adb">
+      <div class="footer-30"></div>
+      <div class="group"></div>
+      <span class="rights-reserved">Lunar Studio. All rights reserved</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
