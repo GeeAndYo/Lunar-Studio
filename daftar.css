@@ -29,14 +29,13 @@ button {
 }
 
 .main-container {
-  width: 100%;
+  width: 1440px;
   min-height: 100vh;
   background: #ffffff;
   display: flex;
   flex-direction: column;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
-  position: relative;
 }
 
 /* HEADER */
@@ -181,14 +180,12 @@ button {
 
 /* FORM SECTION */
 #registerForm {
-  width: 100%;
-  max-width: 1440px;
+  width: 1440px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 80px 20px;
-  flex: 1;
+  min-height: 550px;
   background: #ffffff;
 }
 
@@ -354,7 +351,7 @@ button {
   flex-wrap: wrap;
   gap: 16px;
   position: absolute;
-  width: 100%;
+  width: 1440px;
   height: 354px;
   top: 0;
   left: 0;
@@ -585,13 +582,7 @@ button {
   .flex-row-ff,
   .flex-row-cdac,
   .flex-row-cbc {
-    width: 1440px;
-  }
-  
-  .header,
-  .footer,
-  .footer-e {
-    width: 1440px;
+    width: 100%;
   }
 }
 

@@ -1,31 +1,107 @@
 document.addEventListener("DOMContentLoaded", () => {
-  function go(selector, target) {
-    const el = document.querySelector(selector);
-    if (el) {
-      el.style.cursor = "pointer";
-      el.addEventListener("click", () => {
-        if (typeof target === "function") {
-          target();
-        } else {
-          window.location.href = target;
-        }
-      });
-    }
+
+  // ========================================
+  // AUTHENTICATION SYSTEM
+  // ========================================
+  
+  const publicPages = ['login.html', 'daftar.html', 'register.html'];
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+
+  // Redirect ke login jika belum login dan bukan di halaman public
+  if (!isLoggedIn && !publicPages.includes(currentPage)) {
+    window.location.href = 'login.html';
+    return;
   }
 
-  // HEADER NAVIGATION 
+  // Jika sudah login dan di halaman login/daftar, redirect ke beranda
+  if (isLoggedIn && publicPages.includes(currentPage)) {
+    window.location.href = 'index.html';
+    return;
+  }
+
+  // ========================================
+  // HELPER FUNCTIONS
+  // ========================================
+  
+  function go(selector, target) {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach(el => {
+      if (el) {
+        el.style.cursor = "pointer";
+        
+        // Remove existing listeners by cloning
+        const newEl = el.cloneNode(true);
+        el.parentNode.replaceChild(newEl, el);
+        
+        newEl.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          if (typeof target === "function") {
+            target();
+          } else {
+            window.location.href = target;
+          }
+        });
+      }
+    });
+  }
+
+  // ========================================
+  // HEADER NAVIGATION (SEMUA HALAMAN)
+  // ========================================
+  
   go(".lunar-studio, .title-lunar-studio", "index.html");
   go(".beranda, .title-beranda", "index.html");
   go(".katalog, .title-katalog, .katalog-2", "katalog.html");
-  go(".pesan, .title-pesan", "pesan.html");
+  go(".pesan, .title-pesan, .title-pesan", "pesan.html");
   go(".tracking, .title-tracking", "tracking.html");
   go(".kontak, .title-kontak", "kontak.html");
 
-  // LOGIN & DAFTAR
-  go(".button-login, .text", "login.html");
-  go(".button-daftar, .text-2", "daftar.html");
- 
+  // LOGIN & DAFTAR (HEADER) - dengan class yang lebih spesifik
+  const loginButtons = document.querySelectorAll('.button .button-login, .button .text');
+  loginButtons.forEach(btn => {
+    btn.style.cursor = "pointer";
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.href = "login.html";
+    });
+  });
+
+  const daftarButtons = document.querySelectorAll('.button-1 .button-daftar, .button-2 .button-daftar, .button-1 .text-2, .button-2 .text-2');
+  daftarButtons.forEach(btn => {
+    btn.style.cursor = "pointer";
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.href = "daftar.html";
+    });
+  });
+
+  // Handle klik pada button container header
+  const headerLoginBtn = document.querySelector('.flex-row .button, .flex-row-ff .button, .flex-row-bea .button, .flex-row-ecb .button, .flex-row-df .button');
+  if (headerLoginBtn) {
+    headerLoginBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = "login.html";
+    });
+  }
+
+  const headerDaftarBtn = document.querySelector('.flex-row .button-1, .flex-row .button-2, .flex-row-ff .button-1, .flex-row-ff .button-2, .flex-row-bea .button-1, .flex-row-ecb .button-1, .flex-row-df .button-1');
+  if (headerDaftarBtn) {
+    headerDaftarBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = "daftar.html";
+    });
+  }
+
+  // ========================================
   // KATALOG NAVIGATION
+  // ========================================
+  
   go(".rectangle .title", "template.html");
   go(".rectangle-3 .title-4", "custom.html");
   go(".rectangle-5 .title-6", "paketumkm.html");
@@ -53,7 +129,80 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   
-  // HALAMAN PESAN 
+  // HALAMAN LOGIN
+  const loginForm = document.getElementById("loginForm");
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      
+      const email = document.querySelector('#loginForm input[type="email"]')?.value;
+      const password = document.querySelector('#loginForm input[type="password"]')?.value;
+      
+      if (email && password) {
+        // Simpan data login
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('userData', JSON.stringify({
+          email: email,
+          loginTime: new Date().toISOString()
+        }));
+        
+        alert('Login berhasil! ✨');
+        window.location.href = 'index.html';
+      } else {
+        alert('Silakan isi email dan password');
+      }
+    });
+
+   
+    const daftarLinks = document.querySelectorAll('.title strong, a[href*="daftar"], a[href*="register"]');
+    daftarLinks.forEach(link => {
+      link.style.cursor = "pointer";
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.location.href = "daftar.html";
+      });
+    });
+  }
+
+  
+  // HALAMAN DAFTAR/REGISTER
+  const registerForm = document.getElementById("registerForm");
+  if (registerForm) {
+    registerForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      
+      const nama = document.querySelector('input[name="nama"], input[id*="nama"]')?.value;
+      const email = document.querySelector('input[type="email"]')?.value;
+      const password = document.querySelector('input[type="password"]')?.value;
+      
+      if (nama && email && password) {
+        // Simpan data registrasi
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('userData', JSON.stringify({
+          nama: nama,
+          email: email,
+          registerTime: new Date().toISOString()
+        }));
+        
+        alert('Registrasi berhasil! ✨');
+        window.location.href = 'index.html';
+      } else {
+        alert('Silakan lengkapi semua field');
+      }
+    });
+
+    
+    const loginLinks = document.querySelectorAll('.title strong, a[href*="login"]');
+    loginLinks.forEach(link => {
+      link.style.cursor = "pointer";
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.location.href = "login.html";
+      });
+    });
+  }
+
+  // HALAMAN PESAN
   const orderForm = document.getElementById("orderForm");
   if (orderForm) {
     
@@ -212,10 +361,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // HALAMAN PEMBAYARAN 
+  
+  // HALAMAN PEMBAYARAN
   const paymentForm = document.getElementById("paymentForm");
   if (paymentForm) {
-    
     
     const checkoutData = JSON.parse(localStorage.getItem('checkoutData') || '{}');
     const orderId = localStorage.getItem('orderId') || 'LS-2025-00123';
@@ -281,7 +430,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // HALAMAN TRACKING 
+ 
+  // HALAMAN TRACKING
   const paymentData = JSON.parse(localStorage.getItem('paymentData') || '{}');
   if (paymentData && paymentData.orderId) {
     const trackingOrderId = document.querySelector('.order-id, #trackingOrderId');
@@ -291,5 +441,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   go(".button-4", "tracking.html");
-
 });
