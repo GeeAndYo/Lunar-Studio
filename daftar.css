@@ -36,6 +36,7 @@ button {
   flex-direction: column;
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 /* HEADER */
@@ -185,8 +186,9 @@ button {
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 80px 20px;
-  min-height: 550px;
+  flex: 1;
   background: #ffffff;
 }
 
