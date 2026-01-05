@@ -1,37 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-  // ========================================
-  // AUTHENTICATION SYSTEM
-  // ========================================
   
   const publicPages = ['login.html', 'daftar.html', 'register.html'];
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
   const userData = JSON.parse(localStorage.getItem('userData') || '{}');
 
-  // Redirect ke login jika belum login dan bukan di halaman public
   if (!isLoggedIn && !publicPages.includes(currentPage)) {
     window.location.href = 'login.html';
     return;
   }
 
-  // Jika sudah login dan di halaman login/daftar, redirect ke beranda
   if (isLoggedIn && publicPages.includes(currentPage)) {
     window.location.href = 'index.html';
     return;
   }
 
-  // ========================================
+
   // HELPER FUNCTIONS
-  // ========================================
-  
   function go(selector, target) {
     const elements = document.querySelectorAll(selector);
     elements.forEach(el => {
       if (el) {
         el.style.cursor = "pointer";
         
-        // Remove existing listeners by cloning
         const newEl = el.cloneNode(true);
         el.parentNode.replaceChild(newEl, el);
         
@@ -49,10 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ========================================
-  // HEADER NAVIGATION (SEMUA HALAMAN)
-  // ========================================
-  
+  // HEADER NAVIGATION 
   go(".lunar-studio, .title-lunar-studio", "index.html");
   go(".beranda, .title-beranda", "index.html");
   go(".katalog, .title-katalog, .katalog-2", "katalog.html");
@@ -60,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   go(".tracking, .title-tracking", "tracking.html");
   go(".kontak, .title-kontak", "kontak.html");
 
-  // LOGIN & DAFTAR (HEADER) - dengan class yang lebih spesifik
+  // LOGIN & DAFTAR 
   const loginButtons = document.querySelectorAll('.button .button-login, .button .text');
   loginButtons.forEach(btn => {
     btn.style.cursor = "pointer";
@@ -81,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Handle klik pada button container header
   const headerLoginBtn = document.querySelector('.flex-row .button, .flex-row-ff .button, .flex-row-bea .button, .flex-row-ecb .button, .flex-row-df .button');
   if (headerLoginBtn) {
     headerLoginBtn.addEventListener("click", (e) => {
@@ -98,10 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ========================================
   // KATALOG NAVIGATION
-  // ========================================
-  
   go(".rectangle .title", "template.html");
   go(".rectangle-3 .title-4", "custom.html");
   go(".rectangle-5 .title-6", "paketumkm.html");
@@ -139,7 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const password = document.querySelector('#loginForm input[type="password"]')?.value;
       
       if (email && password) {
-        // Simpan data login
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('userData', JSON.stringify({
           email: email,
@@ -176,7 +159,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const password = document.querySelector('input[type="password"]')?.value;
       
       if (nama && email && password) {
-        // Simpan data registrasi
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('userData', JSON.stringify({
           nama: nama,
