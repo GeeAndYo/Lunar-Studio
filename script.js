@@ -6,12 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const userData = JSON.parse(localStorage.getItem('userData') || '{}');
 
   if (!isLoggedIn && !publicPages.includes(currentPage)) {
-    window.location.href = 'login.html';
+    window.location.replace('login.html'); 
     return;
   }
 
   if (isLoggedIn && publicPages.includes(currentPage)) {
-    window.location.href = 'index.html';
+    window.location.replace('index.html');
     return;
   }
 
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   
-  // HALAMAN LOGIN
+  // HALAMAN LOGIN 
   const loginForm = document.getElementById("loginForm");
   if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
@@ -129,14 +129,12 @@ document.addEventListener("DOMContentLoaded", () => {
           loginTime: new Date().toISOString()
         }));
         
-        alert('Login berhasil! ✨');
-        window.location.href = 'index.html';
+        window.location.replace('index.html');
       } else {
         alert('Silakan isi email dan password');
       }
     });
 
-   
     const daftarLinks = document.querySelectorAll('.title strong, a[href*="daftar"], a[href*="register"]');
     daftarLinks.forEach(link => {
       link.style.cursor = "pointer";
@@ -148,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   
-  // HALAMAN DAFTAR/REGISTER
+  // HALAMAN DAFTAR/REGISTER 
   const registerForm = document.getElementById("registerForm");
   if (registerForm) {
     registerForm.addEventListener("submit", (e) => {
@@ -166,14 +164,12 @@ document.addEventListener("DOMContentLoaded", () => {
           registerTime: new Date().toISOString()
         }));
         
-        alert('Registrasi berhasil! ✨');
-        window.location.href = 'index.html';
+        window.location.replace('index.html');
       } else {
         alert('Silakan lengkapi semua field');
       }
     });
 
-    
     const loginLinks = document.querySelectorAll('.title strong, a[href*="login"]');
     loginLinks.forEach(link => {
       link.style.cursor = "pointer";
