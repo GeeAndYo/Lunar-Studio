@@ -33,25 +33,32 @@ button {
   min-height: 100vh;
   background: #ffffff;
   margin: 0 auto;
+  position: relative;
 }
 
-/* HEADER */
+/* HEADER - 1440PX BISA DI-SCROLL */
 .flex-row-bea {
+  position: relative;
   width: 1440px;
   height: 96px;
-  background: var(--primary-color);
-  border-top: 1px solid var(--border-color);
-  position: relative;
   margin: 0 auto;
+  z-index: 10;
 }
 
 .header {
-  width: 100%;
-  height: 100%;
-  background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
   position: absolute;
+  width: 1440px;
+  height: 96px;
   top: 0;
   left: 0;
+  padding: 0 0 0 0;
+  background: #2a6f97;
+  border-top: 1px solid #d9d9d9;
+  overflow: hidden;
 }
 
 .vector {
@@ -62,32 +69,136 @@ button {
   left: 23px;
   background: url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-01-04/6kGejeZ0az.png) no-repeat center;
   background-size: cover;
+  z-index: 1;
 }
 
 .title-lunar-studio {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   position: absolute;
+  width: 189px;
+  height: 29px;
   top: 36px;
   left: 71px;
   color: #ffffff;
+  font-family: Inter, var(--default-font-family);
   font-size: 24px;
   font-weight: 700;
   line-height: 28.8px;
+  text-align: center;
+  white-space: nowrap;
   letter-spacing: -0.72px;
+  z-index: 2;
   cursor: pointer;
 }
 
-.title-beranda,
-.title-katalog,
-.title-pesan,
-.title-tracking,
-.title-kontak {
+.title-beranda {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   position: absolute;
+  width: 98px;
+  height: 24px;
   top: 37px;
+  left: 461px;
   color: #ffffff;
+  font-family: Inter, var(--default-font-family);
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
+  text-align: center;
+  white-space: nowrap;
   letter-spacing: -0.6px;
+  z-index: 3;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.title-katalog {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: absolute;
+  width: 98px;
+  height: 24px;
+  top: 37px;
+  left: 591px;
+  color: #ffffff;
+  font-family: Inter, var(--default-font-family);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: -0.6px;
+  z-index: 5;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.title-pesan {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: absolute;
+  width: 98px;
+  height: 24px;
+  top: 37px;
+  left: 720px;
+  color: #ffffff;
+  font-family: Inter, var(--default-font-family);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: -0.6px;
+  z-index: 6;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.title-tracking {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: absolute;
+  width: 98px;
+  height: 24px;
+  top: 37px;
+  left: 838px;
+  color: #ffffff;
+  font-family: Inter, var(--default-font-family);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: -0.6px;
+  z-index: 7;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.title-kontak {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: absolute;
+  width: 98px;
+  height: 24px;
+  top: 37px;
+  left: 968px;
+  color: #ffffff;
+  font-family: Inter, var(--default-font-family);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: -0.6px;
+  z-index: 4;
   cursor: pointer;
   transition: opacity 0.3s;
 }
@@ -100,33 +211,25 @@ button {
   opacity: 0.8;
 }
 
-.title-beranda { left: 461px; }
-.title-katalog { left: 591px; }
-.title-pesan { left: 720px; }
-.title-tracking { left: 838px; }
-.title-kontak { left: 968px; }
-
-.button,
-.button-1 {
-  position: absolute;
-  top: 25px;
-  padding: 12px 20px;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s;
+.button {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.button {
-  right: 177px;
+  flex-wrap: nowrap;
+  gap: 8px;
+  position: absolute;
+  width: 94px;
+  height: 40px;
+  top: 25px;
+  left: 1169px;
+  padding: 12px 12px 12px 12px;
   background: #ffffff;
-  color: #1e1e1e;
-  border: 1px solid var(--dark-color);
+  border: 1px solid #2c2c2c;
+  z-index: 8;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .button:hover {
@@ -135,17 +238,61 @@ button {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.button-login {
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  height: 16px;
+  color: #1e1e1e;
+  font-family: Inter, var(--default-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+  white-space: nowrap;
+  z-index: 9;
+}
+
 .button-1 {
-  right: 56px;
-  background: var(--dark-color);
-  color: #f5f5f5;
-  border: 1px solid var(--dark-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+  position: absolute;
+  width: 90px;
+  height: 40px;
+  top: 25px;
+  left: 1294px;
+  padding: 12px 12px 12px 12px;
+  background: #2c2c2c;
+  border: 1px solid #2c2c2c;
+  z-index: 10;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .button-1:hover {
   background: #1a1a1a;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.button-daftar {
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  height: 16px;
+  color: #f5f5f5;
+  font-family: Inter, var(--default-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+  white-space: nowrap;
+  z-index: 11;
 }
 
 /* TITLE SECTION */
@@ -218,7 +365,7 @@ button {
   width: 139px;
   height: 40px;
   top: 0;
-  left: 602px;
+  left: 570px;
 }
 
 .vector-5 {
@@ -244,7 +391,7 @@ button {
 
 .choose-service { left: 59px; }
 .order-details { left: 341px; }
-.title-review { left: 658px; }
+.title-review { left: 627px; }
 .payment { left: 918px; }
 
 .tab {
@@ -941,11 +1088,19 @@ button {
 
 /* RESPONSIVE */
 @media (max-width: 1440px) {
+  /* Biarkan halaman bisa di-scroll horizontal untuk melihat semua konten */
   .main-container,
   .flex-row-bea,
   .flex-row-2f,
   .flex-row-adb {
-    width: 100%;
+    /* Tetap 1440px, bisa di-scroll */
+    width: 1440px;
+  }
+  
+  .header,
+  .footer,
+  .footer-30 {
+    width: 1440px;
   }
 }
 
@@ -957,6 +1112,30 @@ button {
   .pricing-card {
     width: 100%;
     position: static;
+  }
+  
+  .vector-3 {
+    left: 25%;
+  }
+  
+  .vector-4 {
+    left: 75%;
+  }
+  
+  .regroup {
+    left: 47%;
+  }
+  
+  .order-details {
+    left: calc(25% + 59px);
+  }
+  
+  .title-review {
+    left: calc(47% + 59px);
+  }
+  
+  .payment {
+    left: calc(75% + 59px);
   }
 }
 
@@ -970,14 +1149,215 @@ button {
   .title-pesan,
   .title-tracking,
   .title-kontak {
-    display: none;
+    font-size: 14px;
   }
 
   .button {
+    left: auto;
     right: 120px;
+    padding: 10px 16px;
+    font-size: 14px;
   }
 
   .button-1 {
+    left: auto;
     right: 20px;
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  
+  .title-lunar-studio {
+    font-size: 20px;
+    left: 60px;
+  }
+  
+  .vector {
+    left: 15px;
+    width: 35px;
+    height: 36px;
+  }
+  
+  .flex-row-b {
+    width: 95%;
+    padding: 0 10px;
+  }
+  
+  .vector-3 {
+    left: 30%;
+  }
+  
+  .vector-4 {
+    left: 70%;
+  }
+  
+  .regroup {
+    left: 45%;
+  }
+  
+  .choose-service,
+  .order-details,
+  .title-review,
+  .payment {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  
+  .choose-service {
+    left: 50px;
+  }
+  
+  .order-details {
+    left: calc(30% + 50px);
+  }
+  
+  .title-review {
+    left: calc(45% + 50px);
+  }
+  
+  .payment {
+    left: calc(70% + 50px);
+  }
+  
+  .title-buat-pesanan-baru {
+    font-size: 24px;
+    margin: 30px auto 15px;
+    padding: 0 15px;
+  }
+  
+  .title-pilih-jenis-layanan {
+    font-size: 14px;
+    padding: 0 15px;
+  }
+  
+  #orderForm {
+    padding: 20px 10px;
+  }
+  
+  .flex-row {
+    gap: 20px;
+    padding: 0 5px;
+  }
+  
+  .form-shipping {
+    padding: 16px 12px;
+  }
+  
+  .service-cards {
+    gap: 12px;
+  }
+  
+  .service-card {
+    padding: 16px 12px;
+  }
+  
+  .service-icon-3d {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .title-10,
+  .title-11 {
+    font-size: 16px;
+  }
+  
+  .title-14,
+  .title-15 {
+    font-size: 11px;
+  }
+  
+  .shipping-info {
+    font-size: 20px;
+  }
+  
+  .label,
+  .label-16,
+  .label-18,
+  .label-1b,
+  .label-1e,
+  .label-22,
+  .label-27,
+  .deadline-label {
+    font-size: 14px;
+  }
+  
+  .footer,
+  .footer-30 {
+    padding: 15px;
+    height: auto;
+  }
+  
+  .flex-row-2f {
+    height: auto;
+  }
+  
+  .lunar-studio-title,
+  .layanan-title,
+  .perusahaan-title,
+  .bantuan-title {
+    position: static;
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+  
+  .platform-description,
+  .services,
+  .contact-terms,
+  .tentang-kami-title {
+    position: static;
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+/* ADDITIONAL STYLES FOR MOBILE OPTIMIZATION */
+@media (max-width: 480px) {
+  .main-container {
+    min-width: 320px;
+  }
+  
+  .flex-row-bea {
+    min-width: 320px;
+  }
+  
+  .header {
+    min-width: 320px;
+  }
+  
+  .title-beranda,
+  .title-katalog,
+  .title-pesan,
+  .title-tracking,
+  .title-kontak {
+    font-size: 12px;
+    left: auto;
+  }
+  
+  .title-beranda { 
+    position: relative;
+    display: inline-block;
+  }
+  
+  .button {
+    width: 70px;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  
+  .button-1 {
+    width: 70px;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  
+  .title-lunar-studio {
+    font-size: 16px;
+    left: 50px;
+  }
+  
+  .vector {
+    width: 30px;
+    height: 32px;
+    left: 10px;
   }
 }

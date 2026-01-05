@@ -650,11 +650,18 @@ button {
 
 /* RESPONSIVE */
 @media (max-width: 1440px) {
+  /* Biarkan halaman bisa di-scroll horizontal untuk melihat semua konten */
   .main-container,
   .flex-row-ecb,
   .flex-row-eb,
   .flex-row-db-7 {
-    width: 100%;
+    width: 1440px;
+  }
+  
+  .header,
+  .footer,
+  .footer-8 {
+    width: 1440px;
   }
 }
 

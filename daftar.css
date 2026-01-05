@@ -41,13 +41,12 @@ button {
 /* HEADER */
 .flex-row,
 .flex-row-ff {
-  width: 100%;
+  width: 1440px;
   height: 96px;
   background: #2a6f97;
   border-top: 1px solid #d9d9d9;
   position: relative;
-  margin: 0;
-  padding: 0;
+  margin: 0 auto;
 }
 
 .header {
@@ -342,8 +341,7 @@ button {
 /* FOOTER */
 .flex-row-cdac {
   position: relative;
-  width: 100%;
-  max-width: 1440px;
+  width: 1440px;
   height: 354px;
   margin: 50px auto 2px;
 }
@@ -525,8 +523,7 @@ button {
 
 .flex-row-cbc {
   position: relative;
-  width: 100%;
-  max-width: 1440px;
+  width: 1440px;
   height: 112px;
   margin: 0 auto;
 }
@@ -581,14 +578,18 @@ button {
 
 /* RESPONSIVE */
 @media (max-width: 1440px) {
-  .main-container,
+  /* Biarkan halaman bisa di-scroll horizontal untuk melihat semua konten */
   .flex-row,
   .flex-row-ff,
-  #registerForm,
   .flex-row-cdac,
   .flex-row-cbc {
-    width: 100%;
-    max-width: 100%;
+    width: 1440px;
+  }
+  
+  .header,
+  .footer,
+  .footer-e {
+    width: 1440px;
   }
 }
 
